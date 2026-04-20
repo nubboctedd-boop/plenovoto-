@@ -1,0 +1,190 @@
+<!DOCTYPE html>
+<html lang="es">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Tablero de Votación - Congreso de la República del Perú</title>
+    <link rel="stylesheet" href="/static/styles.css">
+</head>
+
+<body>
+    <header class="top-bar" style="height: 80px;">
+        <div class="logo-section">
+            <div class="logo-text" style="font-size: 20px;">
+                PLENOVOTO<br />
+                <span id="meta-label" style="font-size: 11px; color: #fff; font-weight: normal; opacity: 0.8;">MONITOREO
+                    DE VOTACIÓN PARLAMENTARIA</span>
+            </div>
+        </div>
+
+        <div style="display: flex; align-items: center; gap: 20px;">
+            <div class="quorum-box"
+                style="background: rgba(255,255,255,0.05); padding: 5px 15px; border-radius: 8px; border: 1px solid rgba(255,255,255,0.2); text-align: center;">
+                <div style="font-size: 9px; opacity: 0.7;">REGISTRO DE QUÓRUM</div>
+                <input type="number" id="quorum-input" value="130" onchange="updateQuorum()"
+                    style="background: transparent; color: #fff; border: none; font-size: 18px; font-weight: 800; width: 60px; text-align: center; outline: none;">
+            </div>
+
+            <div class="meta-controls"
+                style="background: rgba(255,255,255,0.1); padding: 8px 15px; border-radius: 8px; border: 1px solid rgba(255,255,255,0.1);">
+                <div style="font-size: 9px; opacity: 0.7;">VOTACIÓN REQUERIDA</div>
+                <select id="meta-select" onchange="updateMetaGoal()"
+                    style="background:transparent; color:#fff; border:none; outline:none; font-size: 13px; font-weight: 700; cursor:pointer;">
+                    <option value="simple">Meta Simple (50%+1)</option>
+                    <option value="calificada">Meta Calificada (2/3)</option>
+                    <option value="fija87">Bloque Legal (87)</option>
+                </select>
+            </div>
+
+            <div class="btn-group">
+                <button class="btn btn-reset" onclick="document.getElementById('import-input').click()">📥 CARGAR
+                    EXCEL</button>
+                <input type="file" id="import-input" accept=".xlsx, .xls, .csv" style="display:none"
+                    onchange="importarVotos(event)">
+                <button class="btn btn-export" onclick="exportarResultados()">🖨️ PDF PCM</button>
+                <button class="btn btn-reset" onclick="limpiarTablero()">🗑️</button>
+            </div>
+        </div>
+    </header>
+
+    <section class="dashboard-summary">
+        <div class="led-counter count-favor">
+            <span class="label">A FAVOR</span>
+            <span class="number" id="count-favor">0</span>
+        </div>
+        <div class="led-counter count-contra">
+            <span class="label">EN CONTRA</span>
+            <span class="number" id="count-contra">0</span>
+        </div>
+        <div class="led-counter count-abstencion">
+            <span class="label">ABSTENCIÓN</span>
+            <span class="number" id="count-abstencion">0</span>
+        </div>
+        <div class="led-counter count-novotaron">
+            <span class="label">NO VOTARON</span>
+            <span class="number" id="count-novotaron">0</span>
+        </div>
+        <div class="progress-container"
+            style="grid-column: span 2; background: #fff; border-radius: 0; padding: 15px 25px; display: flex; flex-direction: column; justify-content: center; border-left: 1px solid #e2e8f0;">
+            <div
+                style="display: flex; justify-content: space-between; font-size: 10px; margin-bottom: 6px; font-weight: 800; color: #64748b;">
+                <span id="avance-label">META DE VOTACIÓN</span>
+                <span id="meta-percent" style="color: var(--primary);">0%</span>
+            </div>
+            <div
+                style="height: 10px; background: #f1f5f9; border-radius: 5px; overflow: hidden; border: 1px solid #e2e8f0;">
+                <div id="meta-progress-bar"
+                    style="height: 100%; width: 0%; background: var(--primary); transition: width 1s;"></div>
+            </div>
+        </div>
+    </section>
+
+    <nav class="nav-tabs">
+        <button class="tab-btn active" onclick="switchTab('tab-hemiciclo')">🏟️ TABLERO DE VOTOS</button>
+        <button class="tab-btn" onclick="switchTab('tab-analisis-pro')">📋 ANÁLISIS</button>
+        <button class="tab-btn" onclick="switchTab('tab-mapa')">🗺️ VISIÓN REGIONAL</button>
+        <button class="tab-btn" onclick="switchTab('tab-cuadrantes')">📊 MAPA CARTESIANO</button>
+    </nav>
+
+    <main class="board-container tab-content active" id="tab-hemiciclo">
+        <div id="loading"
+            style="color:var(--primary); text-align:center; padding: 100px; font-weight: 800; letter-spacing: 2px;">
+            CARGANDO BASE DE DATOS MAESTRA...
+        </div>
+        <div id="grid-congresistas" class="grid-congresistas">
+            <!-- Generados desde JS -->
+        </div>
+    </main>
+
+    <main class="board-container tab-content" id="tab-cuadrantes">
+        <div class="analysis-header"
+            style="text-align: center; margin-bottom: 30px; border-bottom: 2px solid var(--primary); padding-bottom: 20px;">
+            <h2 style="color: var(--primary); font-weight: 800; font-size: 24px; margin-bottom: 5px;">ANÁLISIS POR
+                BANCADA</h2>
+            <p style="color: #64748b; font-size: 11px; letter-spacing: 2px; margin-bottom: 20px;">DISTRIBUCIÓN Y
+                TENDENCIAS POLÍTICAS</p>
+
+            <div class="sub-nav" style="display: flex; gap: 10px; justify-content: center;">
+                <button class="btn btn-export" onclick="switchAnalysisView('bancada')" style="min-width: 150px;">Vista
+                    Bancada</button>
+                <button class="btn btn-export" onclick="switchAnalysisView('individual')" style="min-width: 150px;">Mapa
+                    Cartesiano</button>
+            </div>
+        </div>
+
+        <div id="view-bancada" class="analysis-view active">
+            <div id="heatmap-container" class="heatmap-container">
+                <!-- Por JS -->
+            </div>
+        </div>
+
+        <div id="view-individual" class="analysis-view" style="display: none; width: 100%; flex-direction: column; align-items: center;">
+            <!-- Leyenda fuera y encima -->
+            <div id="cartesian-legend-outer" class="cartesian-legend"></div>
+            
+            <div class="scatter-plot-container" id="individual-scatter-plot">
+                <div class="plot-axis-x"></div>
+                <div class="plot-axis-y"></div>
+
+                <span class="plot-label label-favor">A FAVOR</span>
+                <span class="plot-label label-contra">EN CONTRA</span>
+                <span class="plot-label label-abstencion">ABSTENCIÓN</span>
+                <span class="plot-label label-otros">NO VOTO / OTROS</span>
+
+                <div id="scatter-dots" style="position: relative; width: 100%; height: 100%;">
+                    <!-- Puntos con nombres generados por JS -->
+                </div>
+            </div>
+        </div>
+    </main>
+
+    <main class="board-container tab-content" id="tab-mapa">
+        <div class="analysis-header"
+            style="text-align: center; margin-bottom: 30px; border-bottom: 2px solid var(--primary); padding-bottom: 20px;">
+            <h2 style="color: var(--primary); font-weight: 800; font-size: 24px; margin-bottom: 5px;">GEOGRAFÍA DEL VOTO
+            </h2>
+            <p style="color: #64748b; font-size: 11px; letter-spacing: 2px;">DISTRIBUCIÓN REGIONAL POR APOYO (VOTOS A
+                FAVOR)</p>
+        </div>
+        <div class="map-wrapper">
+            <div id="peru-map" class="peru-map" style="background:#000; border-radius: 12px; border: 1px solid #222;">
+                <!-- SVG del Mapa de Perú -->
+            </div>
+            <div id="map-legend" class="map-legend">
+                <!-- Leyenda del mapa -->
+            </div>
+        </div>
+    </main>
+
+    <main class="board-container tab-content" id="tab-analisis-pro">
+        <div class="analysis-header"
+            style="text-align: center; margin-bottom: 30px; border-bottom: 2px solid var(--primary); padding-bottom: 20px;">
+            <h2 style="color: var(--primary); font-weight: 800; font-size: 24px; margin-bottom: 5px;">ANÁLISIS
+                ESTRATÉGICO</h2>
+            <p style="color: #64748b; font-size: 11px; letter-spacing: 2px;">DISIDENCIAS Y CONVERGENCIAS BANCARIAS</p>
+        </div>
+
+        <div style="display: flex; flex-direction: column; gap: 30px; width: 100%; max-width: 1000px;">
+            <div class="analysis-card"
+                style="background: var(--bg-card); border: 1px solid var(--border-glass); border-radius: 12px; padding: 25px;">
+                <h3 style="font-size: 16px; margin-bottom: 20px; border-bottom: 2px solid var(--primary); padding-bottom: 15px; color: var(--primary);">⚖️ DISIDENCIAS PARLAMENTARIAS</h3>
+                <div id="disidencias-list" style="max-height: 500px; overflow-y: auto;">
+                    <!-- Listado de disidentes -->
+                </div>
+            </div>
+
+            <div class="analysis-card"
+                style="background: var(--bg-card); border: 1px solid var(--border-glass); border-radius: 12px; padding: 25px;">
+                <h3 style="font-size: 16px; margin-bottom: 20px; border-bottom: 2px solid var(--primary); padding-bottom: 15px; color: var(--primary);">🤝 NIVEL DE CONVERGENCIA INTER-BANCADA</h3>
+                <div id="bipartidismo-container" style="max-height: 500px; overflow-y: auto;">
+                    <!-- Matriz de coincidencias -->
+                </div>
+            </div>
+        </div>
+    </main>
+
+    <script src="/static/app.js?v=ULTRA_REFRESH_4_COLUMNS"></script>
+</body>
+
+</html>

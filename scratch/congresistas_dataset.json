@@ -1,0 +1,912 @@
+[
+  {
+    "name": "Aguinaga Recuenco Alejandro Aurelio",
+    "region": "Lambayeque",
+    "bench_id": "1",
+    "bench_name": "FP",
+    "dni": "08236035"
+  },
+  {
+    "name": "Alegría García Luis Arturo",
+    "region": "San Martín",
+    "bench_id": "1",
+    "bench_name": "FP",
+    "dni": "41029272"
+  },
+  {
+    "name": "Barbarán Reyes Rosangella Andrea",
+    "region": "Lima",
+    "bench_id": "1",
+    "bench_name": "FP",
+    "dni": "44111357"
+  },
+  {
+    "name": "Bustamante Donayre Ernesto",
+    "region": "Lima",
+    "bench_id": "1",
+    "bench_name": "FP",
+    "dni": "08232920"
+  },
+  {
+    "name": "Castillo Rivas Eduardo Enrique",
+    "region": "Piura",
+    "bench_id": "1",
+    "bench_name": "FP",
+    "dni": "41620241"
+  },
+  {
+    "name": "Chacón Trujillo Nilza Merly",
+    "region": "Ancash",
+    "bench_id": "1",
+    "bench_name": "FP",
+    "dni": "32402450"
+  },
+  {
+    "name": "Flores Ruíz Víctor Seferino",
+    "region": "La Libertad",
+    "bench_id": "1",
+    "bench_name": "FP",
+    "dni": "17834789"
+  },
+  {
+    "name": "Huamán Coronado Raúl",
+    "region": "Ica",
+    "bench_id": "1",
+    "bench_name": "FP",
+    "dni": "21564196"
+  },
+  {
+    "name": "Infantes Castañeda Mery Eliana",
+    "region": "Amazonas",
+    "bench_id": "1",
+    "bench_name": "FP",
+    "dni": "01340156"
+  },
+  {
+    "name": "Jiménez Heredia David Julio",
+    "region": "Junín",
+    "bench_id": "1",
+    "bench_name": "FP",
+    "dni": "19904257"
+  },
+  {
+    "name": "Juárez Gallegos Carmen Patricia",
+    "region": "Lima",
+    "bench_id": "1",
+    "bench_name": "FP",
+    "dni": "07831436"
+  },
+  {
+    "name": "López Morales Jeny Luz",
+    "region": "Ucayali",
+    "bench_id": "1",
+    "bench_name": "FP",
+    "dni": "32039233"
+  },
+  {
+    "name": "Moyano Delgado Martha Lupe",
+    "region": "Lima",
+    "bench_id": "1",
+    "bench_name": "FP",
+    "dni": "07264350"
+  },
+  {
+    "name": "Obando Morgan Auristela Ana",
+    "region": "Callao",
+    "bench_id": "1",
+    "bench_name": "FP",
+    "dni": "21434316"
+  },
+  {
+    "name": "Ramírez García Tania Estefany",
+    "region": "Cajamarca",
+    "bench_id": "1",
+    "bench_name": "FP",
+    "dni": "43336715"
+  },
+  {
+    "name": "Revilla Villanueva César Manuel",
+    "region": "Piura",
+    "bench_id": "1",
+    "bench_name": "FP",
+    "dni": "42168936"
+  },
+  {
+    "name": "Rospigliosi Capurro Fernando Miguel",
+    "region": "Lima",
+    "bench_id": "1",
+    "bench_name": "FP",
+    "dni": "07704730"
+  },
+  {
+    "name": "Santisteban Suclupe Magaly",
+    "region": "Tumbes",
+    "bench_id": "1",
+    "bench_name": "FP",
+    "dni": "41029141"
+  },
+  {
+    "name": "Ventura Angel Héctor José",
+    "region": "Tumbes",
+    "bench_id": "1",
+    "bench_name": "FP",
+    "dni": "40585695"
+  },
+  {
+    "name": "Zeta Chunga Cruz María",
+    "region": "Piura",
+    "bench_id": "1",
+    "bench_name": "FP",
+    "dni": "02868233"
+  },
+  {
+    "name": "Acuña Peralta María Grimaneza",
+    "region": "La Libertad",
+    "bench_id": "2",
+    "bench_name": "APP",
+    "dni": "17849132"
+  },
+  {
+    "name": "Camones Soriano Lady Mercedes",
+    "region": "Ancash",
+    "bench_id": "2",
+    "bench_name": "APP",
+    "dni": "32532579"
+  },
+  {
+    "name": "Chiabra León Roberto Enrique",
+    "region": "Lima",
+    "bench_id": "2",
+    "bench_name": "APP",
+    "dni": "07241281"
+  },
+  {
+    "name": "Cordero Jon Tay Luis Gustavo",
+    "region": "Lima Provincias",
+    "bench_id": "2",
+    "bench_name": "APP",
+    "dni": "15300817"
+  },
+  {
+    "name": "Elías Ávalos José Luis",
+    "region": "Ica",
+    "bench_id": "2",
+    "bench_name": "APP",
+    "dni": "21569935"
+  },
+  {
+    "name": "Flores Ancachi Jorge Luis",
+    "region": "Puno",
+    "bench_id": "2",
+    "bench_name": "APP",
+    "dni": "00422416"
+  },
+  {
+    "name": "García Correa Idelso Manuel",
+    "region": "Piura",
+    "bench_id": "2",
+    "bench_name": "APP",
+    "dni": "04072098"
+  },
+  {
+    "name": "Heidinger Ballesteros Nelcy",
+    "region": "Pasco",
+    "bench_id": "2",
+    "bench_name": "APP",
+    "dni": "10491661"
+  },
+  {
+    "name": "Julon Irigoin Elva Edhit",
+    "region": "Cajamarca",
+    "bench_id": "2",
+    "bench_name": "APP",
+    "dni": "46130369"
+  },
+  {
+    "name": "Kamiche Morante Luis Roberto",
+    "region": "La Libertad",
+    "bench_id": "2",
+    "bench_name": "APP",
+    "dni": "10804834"
+  },
+  {
+    "name": "Lizarzaburu Juan Carlos",
+    "region": "PP.EE.",
+    "bench_id": "2",
+    "bench_name": "APP",
+    "dni": "07629631"
+  },
+  {
+    "name": "Marticorena Mendoza Jorge Alfonso",
+    "region": "Ica",
+    "bench_id": "2",
+    "bench_name": "APP",
+    "dni": "21456255"
+  },
+  {
+    "name": "Quiroz Barboza Segundo Teodomiro",
+    "region": "Cajamarca",
+    "bench_id": "2",
+    "bench_name": "APP",
+    "dni": "27361499"
+  },
+  {
+    "name": "Ruíz Rodríguez Magaly Rosmery",
+    "region": "La Libertad",
+    "bench_id": "2",
+    "bench_name": "APP",
+    "dni": "17849641"
+  },
+  {
+    "name": "Salhuana Cavides Eduardo",
+    "region": "Madre de Dios",
+    "bench_id": "2",
+    "bench_name": "APP",
+    "dni": "24691456"
+  },
+  {
+    "name": "Soto Reyes Alejandro",
+    "region": "Cusco",
+    "bench_id": "2",
+    "bench_name": "APP",
+    "dni": "23933010"
+  },
+  {
+    "name": "Torres Salinas Rosio",
+    "region": "Loreto",
+    "bench_id": "2",
+    "bench_name": "APP",
+    "dni": "05618705"
+  },
+  {
+    "name": "Arriola Tueros, José Alberto",
+    "region": "Lima",
+    "bench_id": "3",
+    "bench_name": "PP",
+    "dni": "25542661"
+  },
+  {
+    "name": "Bellido Ugarte Guido",
+    "region": "Cusco",
+    "bench_id": "3",
+    "bench_name": "PP",
+    "dni": "23963478"
+  },
+  {
+    "name": "Burgos Oliveros Juan Bartolomé",
+    "region": "La Libertad",
+    "bench_id": "3",
+    "bench_name": "PP",
+    "dni": "PENDIENTE"
+  },
+  {
+    "name": "Calle Lobatón Digna",
+    "region": "Lima",
+    "bench_id": "3",
+    "bench_name": "PP",
+    "dni": "08269558"
+  },
+  {
+    "name": "Espinoza Vargas Jhaec Darwin",
+    "region": "Ancash",
+    "bench_id": "3",
+    "bench_name": "PP",
+    "dni": "41381373"
+  },
+  {
+    "name": "Juárez Calle Heidy Lisbeth",
+    "region": "Piura",
+    "bench_id": "3",
+    "bench_name": "PP",
+    "dni": "PENDIENTE"
+  },
+  {
+    "name": "Laura Rojas Judith",
+    "region": "Lima",
+    "bench_id": "3",
+    "bench_name": "PP",
+    "dni": "10174734"
+  },
+  {
+    "name": "Luna Gálvez José León",
+    "region": "Lima",
+    "bench_id": "3",
+    "bench_name": "PP",
+    "dni": "07246887"
+  },
+  {
+    "name": "Orue Medina, Ariana Maybee",
+    "region": "Callao",
+    "bench_id": "3",
+    "bench_name": "PP",
+    "dni": "48164963"
+  },
+  {
+    "name": "Paredes Castro Francis Jhasmina",
+    "region": "Ucayali",
+    "bench_id": "3",
+    "bench_name": "PP",
+    "dni": "40858548"
+  },
+  {
+    "name": "Picón Quedo Luis Raúl",
+    "region": "Huánuco",
+    "bench_id": "3",
+    "bench_name": "PP",
+    "dni": "23017616"
+  },
+  {
+    "name": "Tello Montes Nivardo Edgar",
+    "region": "Lima",
+    "bench_id": "3",
+    "bench_name": "PP",
+    "dni": "08253163"
+  },
+  {
+    "name": "Agüero Gutiérrez María Antonieta",
+    "region": "Arequipa",
+    "bench_id": "4",
+    "bench_name": "PL",
+    "dni": "29555675"
+  },
+  {
+    "name": "Balcázar Zelada José María",
+    "region": "Lambayeque",
+    "bench_id": "4",
+    "bench_name": "PL",
+    "dni": "16434444"
+  },
+  {
+    "name": "Cerrón Rojas Waldemar José",
+    "region": "Junín",
+    "bench_id": "4",
+    "bench_name": "PL",
+    "dni": "20036514"
+  },
+  {
+    "name": "Cruz Mamani Flavio",
+    "region": "Puno",
+    "bench_id": "4",
+    "bench_name": "PL",
+    "dni": "01311614"
+  },
+  {
+    "name": "Espíritu Cavero Raúl",
+    "region": "San Martin",
+    "bench_id": "4",
+    "bench_name": "PL",
+    "dni": "PENDIENTE"
+  },
+  {
+    "name": "Gonza Castillo Americo",
+    "region": "Cajamarca",
+    "bench_id": "4",
+    "bench_name": "PL",
+    "dni": "41187802"
+  },
+  {
+    "name": "Mita Alanoca Isaac",
+    "region": "Tacna",
+    "bench_id": "4",
+    "bench_name": "PL",
+    "dni": "PENDIENTE"
+  },
+  {
+    "name": "Montalvo Cubas Segundo Toribio",
+    "region": "Amazonas",
+    "bench_id": "4",
+    "bench_name": "PL",
+    "dni": "PENDIENTE"
+  },
+  {
+    "name": "Portalatino Ávalos Kelly Roxana",
+    "region": "Ancash",
+    "bench_id": "4",
+    "bench_name": "PL",
+    "dni": "PENDIENTE"
+  },
+  {
+    "name": "Reyes Cam Abel Augusto",
+    "region": "Huánuco",
+    "bench_id": "4",
+    "bench_name": "PL",
+    "dni": "PENDIENTE"
+  },
+  {
+    "name": "Rivas Chacara Janet Milagros",
+    "region": "Lima Provincias",
+    "bench_id": "4",
+    "bench_name": "PL",
+    "dni": "PENDIENTE"
+  },
+  {
+    "name": "Taipe Coronado María Elizabeth",
+    "region": "Apurimac",
+    "bench_id": "4",
+    "bench_name": "PL",
+    "dni": "01150493"
+  },
+  {
+    "name": "Bazán Calderón Diego Alonso Fernando",
+    "region": "La Libertad",
+    "bench_id": "5",
+    "bench_name": "RP",
+    "dni": "PENDIENTE"
+  },
+  {
+    "name": "Chirinos Venegas Patricia",
+    "region": "Callao",
+    "bench_id": "5",
+    "bench_name": "RP",
+    "dni": "PENDIENTE"
+  },
+  {
+    "name": "Ciccia Vásquez Miguel Angel",
+    "region": "Piura",
+    "bench_id": "5",
+    "bench_name": "RP",
+    "dni": "PENDIENTE"
+  },
+  {
+    "name": "Córdova Lobatón María Jessica",
+    "region": "Lambayeque",
+    "bench_id": "5",
+    "bench_name": "RP",
+    "dni": "PENDIENTE"
+  },
+  {
+    "name": "Herrera Medina Noelia Rossvith",
+    "region": "Callao",
+    "bench_id": "5",
+    "bench_name": "RP",
+    "dni": "PENDIENTE"
+  },
+  {
+    "name": "Jáuregui Martínez María",
+    "region": "Lima",
+    "bench_id": "5",
+    "bench_name": "RP",
+    "dni": "PENDIENTE"
+  },
+  {
+    "name": "Medina Minaya Esdras Ricardo",
+    "region": "Arequipa",
+    "bench_id": "5",
+    "bench_name": "RP",
+    "dni": "PENDIENTE"
+  },
+  {
+    "name": "Muñante Barrios Alejandro",
+    "region": "Lima",
+    "bench_id": "5",
+    "bench_name": "RP",
+    "dni": "05273751"
+  },
+  {
+    "name": "Trigozo Reátegui Cheryl",
+    "region": "San Martín",
+    "bench_id": "5",
+    "bench_name": "RP",
+    "dni": "PENDIENTE"
+  },
+  {
+    "name": "Yarrow Lumbreras Norma Martina",
+    "region": "Lima",
+    "bench_id": "5",
+    "bench_name": "RP",
+    "dni": "07218683"
+  },
+  {
+    "name": "Zeballos Aponte Jorge Arturo",
+    "region": "PP.EE.",
+    "bench_id": "5",
+    "bench_name": "RP",
+    "dni": "09315582"
+  },
+  {
+    "name": "Bermejo Rojas Guillermo",
+    "region": "Lima",
+    "bench_id": "6",
+    "bench_name": "JPP",
+    "dni": "PENDIENTE"
+  },
+  {
+    "name": "Coayla Juárez Jorge Samuel",
+    "region": "Moquegua",
+    "bench_id": "6",
+    "bench_name": "JPP",
+    "dni": "PENDIENTE"
+  },
+  {
+    "name": "Cutipa Ccama Víctor Raúl",
+    "region": "Moquegua",
+    "bench_id": "6",
+    "bench_name": "JPP",
+    "dni": "PENDIENTE"
+  },
+  {
+    "name": "Echevarría Rodríguez Hamlet",
+    "region": "Cajamarca",
+    "bench_id": "6",
+    "bench_name": "JPP",
+    "dni": "PENDIENTE"
+  },
+  {
+    "name": "Limachi Quispe Nieves Esmeralda",
+    "region": "Tacna",
+    "bench_id": "6",
+    "bench_name": "JPP",
+    "dni": "PENDIENTE"
+  },
+  {
+    "name": "Quispe Mamani Wilson Rusbel",
+    "region": "Puno",
+    "bench_id": "6",
+    "bench_name": "JPP",
+    "dni": "PENDIENTE"
+  },
+  {
+    "name": "Sánchez Palomino Roberto Helbert",
+    "region": "Lima",
+    "bench_id": "6",
+    "bench_name": "JPP",
+    "dni": "PENDIENTE"
+  },
+  {
+    "name": "Tacuri Valdivia Germán Adolfo",
+    "region": "Ayacucho",
+    "bench_id": "6",
+    "bench_name": "JPP",
+    "dni": "PENDIENTE"
+  },
+  {
+    "name": "Ugarte Mamani Jhakeline Katy",
+    "region": "Cusco",
+    "bench_id": "6",
+    "bench_name": "JPP",
+    "dni": "PENDIENTE"
+  },
+  {
+    "name": "Varas Meléndez Elías Marcial",
+    "region": "Ancash",
+    "bench_id": "6",
+    "bench_name": "JPP",
+    "dni": "PENDIENTE"
+  },
+  {
+    "name": "Azurín Loayza Alfredo",
+    "region": "Lima",
+    "bench_id": "7",
+    "bench_name": "SP",
+    "dni": "07315151"
+  },
+  {
+    "name": "Gutiérrez Ticona Paul Silvio",
+    "region": "Apurimac",
+    "bench_id": "7",
+    "bench_name": "SP",
+    "dni": "23271165"
+  },
+  {
+    "name": "Jeri Oré José Enrique",
+    "region": "Lima",
+    "bench_id": "7",
+    "bench_name": "SP",
+    "dni": "09841804"
+  },
+  {
+    "name": "Medina Hermosilla Elizabeth Sara",
+    "region": "Huánuco",
+    "bench_id": "7",
+    "bench_name": "SP",
+    "dni": "22432857"
+  },
+  {
+    "name": "Morante Figari Jorge Alberto",
+    "region": "Loreto",
+    "bench_id": "7",
+    "bench_name": "SP",
+    "dni": "05273751"
+  },
+  {
+    "name": "Paredes Gonzales Alex Antonio",
+    "region": "Arequipa",
+    "bench_id": "7",
+    "bench_name": "SP",
+    "dni": "29505856"
+  },
+  {
+    "name": "Pazo Nunura José Bernardo",
+    "region": "Piura",
+    "bench_id": "7",
+    "bench_name": "SP",
+    "dni": "02871300"
+  },
+  {
+    "name": "Valer Pinto Héctor",
+    "region": "Lima",
+    "bench_id": "7",
+    "bench_name": "SP",
+    "dni": "07519616"
+  },
+  {
+    "name": "Zea Choquechambi Oscar",
+    "region": "Puno",
+    "bench_id": "7",
+    "bench_name": "SP",
+    "dni": "01540938"
+  },
+  {
+    "name": "Zegarra Saboya Ana Zadith",
+    "region": "Loreto",
+    "bench_id": "7",
+    "bench_name": "SP",
+    "dni": "05273578"
+  },
+  {
+    "name": "Alva Prieto María del Carmen",
+    "region": "Lima",
+    "bench_id": "8",
+    "bench_name": "AP",
+    "dni": "08271323"
+  },
+  {
+    "name": "Alva Rojas Carlos Enrique",
+    "region": "La Libertad",
+    "bench_id": "8",
+    "bench_name": "AP",
+    "dni": "17937985"
+  },
+  {
+    "name": "Aragón Carreño Luis Ángel",
+    "region": "Cusco",
+    "bench_id": "8",
+    "bench_name": "AP",
+    "dni": "23953530"
+  },
+  {
+    "name": "López Ureña Ilich Fredy",
+    "region": "Junín",
+    "bench_id": "8",
+    "bench_name": "AP",
+    "dni": "41108216"
+  },
+  {
+    "name": "Martínez Talavera Pedro Edwin",
+    "region": "Arequipa",
+    "bench_id": "8",
+    "bench_name": "AP",
+    "dni": "29384343"
+  },
+  {
+    "name": "Monteza Facho Silvia María",
+    "region": "Cajamarca",
+    "bench_id": "8",
+    "bench_name": "AP",
+    "dni": "16667146"
+  },
+  {
+    "name": "Mori Celis Juan Carlos",
+    "region": "Loreto",
+    "bench_id": "8",
+    "bench_name": "AP",
+    "dni": "31023773"
+  },
+  {
+    "name": "Portero López Hilda Marleny",
+    "region": "Lambayeque",
+    "bench_id": "8",
+    "bench_name": "AP",
+    "dni": "PENDIENTE"
+  },
+  {
+    "name": "Soto Palacios Wilson",
+    "region": "Huancavelica",
+    "bench_id": "8",
+    "bench_name": "AP",
+    "dni": "43283286"
+  },
+  {
+    "name": "Vergara Mendoza Elvis Hernán",
+    "region": "Ucayali",
+    "bench_id": "8",
+    "bench_name": "AP",
+    "dni": "41703666"
+  },
+  {
+    "name": "Amuruz Dulanto Yessica Rosselli",
+    "region": "Lima",
+    "bench_id": "10",
+    "bench_name": "Av.P",
+    "dni": "40417937"
+  },
+  {
+    "name": "Cavero Alva Alejandro Enrique",
+    "region": "Lima",
+    "bench_id": "10",
+    "bench_name": "Av.P",
+    "dni": "46175510"
+  },
+  {
+    "name": "Gonzáles Delgado Diana Carolina",
+    "region": "Arequipa",
+    "bench_id": "10",
+    "bench_name": "Av.P",
+    "dni": "70546213"
+  },
+  {
+    "name": "Paredes Fonseca Karol Ivett",
+    "region": "San Martín",
+    "bench_id": "10",
+    "bench_name": "Av.P",
+    "dni": "41042571"
+  },
+  {
+    "name": "Tudela Gutiérrez Adriana Josefina",
+    "region": "Lima",
+    "bench_id": "10",
+    "bench_name": "Av.P",
+    "dni": "45511383"
+  },
+  {
+    "name": "Williams Zapata José Daniel",
+    "region": "Lima",
+    "bench_id": "10",
+    "bench_name": "Av.P",
+    "dni": "07246473"
+  },
+  {
+    "name": "Dávila Atanacio Pasión Neomias",
+    "region": "Pasco",
+    "bench_id": "11",
+    "bench_name": "BS",
+    "dni": "25700579"
+  },
+  {
+    "name": "Flores Ramírez Alex Randu",
+    "region": "Ayacucho",
+    "bench_id": "11",
+    "bench_name": "BS",
+    "dni": "PENDIENTE"
+  },
+  {
+    "name": "Pariona Sinche Alfredo",
+    "region": "Huancavelica",
+    "bench_id": "11",
+    "bench_name": "BS",
+    "dni": "20054714"
+  },
+  {
+    "name": "Quito Sarmiento Bernardo Jaime",
+    "region": "Arequipa",
+    "bench_id": "11",
+    "bench_name": "BS",
+    "dni": "29272304"
+  },
+  {
+    "name": "Robles Araujo Silvana Emperatriz",
+    "region": "Junín",
+    "bench_id": "11",
+    "bench_name": "BS",
+    "dni": "43088036"
+  },
+  {
+    "name": "Acuña Peralta Segundo Héctor",
+    "region": "Lambayeque",
+    "bench_id": "12",
+    "bench_name": "HD",
+    "dni": "PENDIENTE"
+  },
+  {
+    "name": "Cueto Aservi José Ernesto",
+    "region": "Lima",
+    "bench_id": "12",
+    "bench_name": "HD",
+    "dni": "07241940"
+  },
+  {
+    "name": "Echaíz Ramos Vda de Nuñez, Gladys Margot",
+    "region": "Lima",
+    "bench_id": "12",
+    "bench_name": "HD",
+    "dni": "06112711"
+  },
+  {
+    "name": "Montoya Manrique Jorge Carlos",
+    "region": "Lima",
+    "bench_id": "12",
+    "bench_name": "HD",
+    "dni": "07241199"
+  },
+  {
+    "name": "Padilla Romero Javier Rommel",
+    "region": "Lima Provincias",
+    "bench_id": "12",
+    "bench_name": "HD",
+    "dni": "10691398"
+  },
+  {
+    "name": "Bazán Narro Sigrid Tesoro",
+    "region": "Lima",
+    "bench_id": "13",
+    "bench_name": "BDP",
+    "dni": "41065184"
+  },
+  {
+    "name": "Luque Ibarra Ruth",
+    "region": "Cusco",
+    "bench_id": "13",
+    "bench_name": "BDP",
+    "dni": "23933069"
+  },
+  {
+    "name": "Paredes Piqué Susel Ana María",
+    "region": "Lima",
+    "bench_id": "13",
+    "bench_name": "BDP",
+    "dni": "07217351"
+  },
+  {
+    "name": "Reymundo Mercado Edgard Cornelio",
+    "region": "Junín",
+    "bench_id": "13",
+    "bench_name": "BDP",
+    "dni": "08266205"
+  },
+  {
+    "name": "Zeballos Madariaga Carlos Javier",
+    "region": "Puno",
+    "bench_id": "13",
+    "bench_name": "BDP",
+    "dni": "29699661"
+  },
+  {
+    "name": "Alcarraz Agüero Yorel Kira",
+    "region": "Lima",
+    "bench_id": "14",
+    "bench_name": "N.A.",
+    "dni": "44933973"
+  },
+  {
+    "name": "Cortez Aguirre Isabel",
+    "region": "Lima",
+    "bench_id": "14",
+    "bench_name": "N.A.",
+    "dni": "09210748"
+  },
+  {
+    "name": "Doroteo Carbajo Raúl Felipe",
+    "region": "Ica",
+    "bench_id": "14",
+    "bench_name": "N.A.",
+    "dni": "21406859"
+  },
+  {
+    "name": "Málaga Trillo George Edward",
+    "region": "Lima",
+    "bench_id": "14",
+    "bench_name": "N.A.",
+    "dni": "07834574"
+  },
+  {
+    "name": "Olivos Martínez Leslie Vivian",
+    "region": "Lima Provincias",
+    "bench_id": "14",
+    "bench_name": "N.A.",
+    "dni": "PENDIENTE"
+  },
+  {
+    "name": "Pablo Medina Flor Aidee",
+    "region": "Lima",
+    "bench_id": "14",
+    "bench_name": "N.A.",
+    "dni": "09403043"
+  },
+  {
+    "name": "Palacios Huáman Margot",
+    "region": "Ayacucho",
+    "bench_id": "14",
+    "bench_name": "N.A.",
+    "dni": "41444342"
+  }
+]
