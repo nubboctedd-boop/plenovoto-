@@ -198,6 +198,7 @@ function renderHemiciclo() {
                 
                 // Formato Consolidado: NOMBRE (BANCADA)
                 const nombreOficial = formatNombreOficial(c.nombre);
+                const displayNombre = c.oralizado ? `${nombreOficial}*` : nombreOficial;
                 const oralIcon = c.oralizado ? '✅' : '⚪';
                 
                 // Construir Select
@@ -206,9 +207,9 @@ function renderHemiciclo() {
                     const selected = (e.id === c.voto_estado) ? "selected" : "";
                     optionsHtml += `<option value="${e.id}" ${selected}>${e.id}</option>`;
                 });
-
+                
                 card.innerHTML = `
-                    <span class="curul-nombre-party" title="${c.nombre}">${nombreOficial} (${c.bancada})</span>
+                    <span class="curul-nombre-party" title="${c.nombre}">${displayNombre} (${c.bancada})</span>
                     <span class="oral-check" onclick="toggleOralizado(event, ${originalIdx})" style="cursor:pointer; font-size:10px;">${oralIcon}</span>
                     <select class="vote-selector" onchange="actualizarVotoDesdeSelector(${originalIdx}, this.value)">
                         ${optionsHtml}
@@ -458,32 +459,89 @@ async function importarVotos(event) {
 function str(val) { return String(val).trim(); }
 
 async function exportarResultados() {
+    console.log("📤 Iniciando exportación de resultados...");
     try {
         const payload = {
             data: dataCongresistas,
             meta: currentMeta,
-            meta_label: document.getElementById("meta-select").options[document.getElementById("meta-select").selectedIndex].text
+            meta_label: document.getElementById("meta-select").options[document.getElementById("meta-select").selectedIndex]?.text || "Meta"
         };
+        
         const response = await fetch('/api/exportar', {
             method: 'POST',
             headers: { 'Content-Type': 'application/json' },
             body: JSON.stringify(payload)
         });
-        const r = await response.json();
-        if (r.mensaje) alert("✅ Reporte generado: " + r.mensaje);
-        else alert("⚠️ " + (r.error || "Error al exportar"));
+
+        if (!response.ok) {
+            const err = await response.json();
+            throw new Error(err.error || "Fallo en el servidor");
+        }
+
+        // Procesar como BLOB para descarga directa en el navegador
+        const blob = await response.blob();
+        const url = window.URL.createObjectURL(blob);
+        const a = document.createElement('a');
+        
+        // Extraer nombre del header si es posible, sino usar default
+        const contentDisposition = response.headers.get('Content-Disposition');
+        let filename = "Reporte_PlenoVoto.pdf";
+        if (contentDisposition && contentDisposition.includes('filename=')) {
+            filename = contentDisposition.split('filename=')[1].split(';')[0].replace(/"/g, '');
+        }
+
+        a.href = url;
+        a.download = filename;
+        document.body.appendChild(a);
+        a.click();
+        window.URL.revokeObjectURL(url);
+        document.body.removeChild(a);
+
+        console.log("✅ Reporte descargado: " + filename);
     } catch(e) { 
-        console.error(e);
-        alert("❌ Error al exportar resultados."); 
+        console.error("❌ Error al exportar:", e);
+        alert("❌ Error al exportar resultados: " + e.message); 
     }
 }
 
 function limpiarTablero() {
-    if(!confirm("¿Deseas reiniciar toda la sesión?")) return;
-    dataCongresistas.forEach(c => { if(!c.is_empty){ c.voto_estado = "PENDIENTE"; c.modificado = false; c.oralizado = false; }});
-    localStorage.removeItem(STORAGE_KEY);
-    renderHemiciclo();
-    updateStats();
+    console.log("🗑️ Iniciando limpieza de tablero...");
+    if(!confirm("¿Deseas reiniciar toda la sesión y borrar todos los votos registrados?")) return;
+    
+    try {
+        // Reset de datos en memoria
+        dataCongresistas.forEach(c => { 
+            if(!c.is_empty){ 
+                c.voto_estado = "PENDIENTE"; 
+                c.modificado = false; 
+                c.oralizado = false; 
+            }
+        });
+
+        // Limpiar persistencia local
+        localStorage.removeItem(STORAGE_KEY);
+        console.log("🧹 LocalStorage limpiado.");
+
+        // Refrescar UI
+        renderHemiciclo();
+        updateStats();
+        
+        // Si hay otras vistas activas, refrescarlas
+        const activeTab = document.querySelector('.tab-btn.active');
+        if (activeTab) {
+            const func = activeTab.getAttribute('onclick');
+            if (func.includes('switchTab')) {
+                // Forzar re-render de la pestaña actual
+                const tabId = func.match(/'([^']+)'/)[1];
+                switchTab(tabId);
+            }
+        }
+
+        alert("✅ Tablero reiniciado correctamente.");
+    } catch (err) {
+        console.error("❌ Error durante la limpieza:", err);
+        alert("❌ Hubo un error al limpiar el tablero: " + err.message);
+    }
 }
 
 function renderHeatmap() {
@@ -556,8 +614,10 @@ function verDetalleBancada(bancada) {
         if(m.voto_estado === "MESA DIRECTIVA") classVoto = "v-mesa";
         if(m.voto_estado === "NO VOTO") classVoto = "v-novoto";
 
+        const displayNombre = m.oralizado ? `${m.nombre}*` : m.nombre;
+
         row.innerHTML = `
-            <span class="cong-name">${m.nombre}</span>
+            <span class="cong-name">${displayNombre}</span>
             <span class="voto-tag ${classVoto}">${m.voto_estado}</span>
         `;
         body.appendChild(row);
@@ -569,6 +629,59 @@ function verDetalleBancada(bancada) {
 function cerrarModal() {
     const modal = document.getElementById("bancada-modal");
     if(modal) modal.style.display = "none";
+}
+
+function verDetalleVoto(estado) {
+    const modal = document.getElementById("bancada-modal");
+    const title = document.getElementById("modal-title");
+    const body = document.getElementById("modal-body");
+    
+    if(!modal || !body) return;
+
+    title.innerText = `RELACIÓN NOMINAL: ${estado}`;
+    body.innerHTML = "";
+    
+    let miembros = [];
+    if (estado === "NO VOTARON") {
+        miembros = dataCongresistas.filter(c => !c.is_empty && ["NO VOTO", "MESA DIRECTIVA", "LICENCIA"].includes(c.voto_estado));
+    } else {
+        miembros = dataCongresistas.filter(c => c.voto_estado === estado && !c.is_empty);
+    }
+
+    // Ordenar por bancada y luego por nombre
+    miembros.sort((a, b) => {
+        const bA = a.bancada || "";
+        const bB = b.bancada || "";
+        if (bA !== bB) return bA.localeCompare(bB);
+        return a.nombre.localeCompare(b.nombre);
+    });
+
+    if (miembros.length === 0) {
+        body.innerHTML = "<p style='text-align:center; padding:20px; opacity:0.6;'>No hay votos registrados en esta categoría.</p>";
+    }
+
+    miembros.forEach(m => {
+        const row = document.createElement("div");
+        row.className = "modal-row";
+        
+        let classVoto = "v-pendiente";
+        if(m.voto_estado === "A FAVOR") classVoto = "v-favor";
+        if(m.voto_estado === "EN CONTRA") classVoto = "v-contra";
+        if(m.voto_estado === "ABSTENCION") classVoto = "v-abstencion";
+        if(m.voto_estado === "LICENCIA") classVoto = "v-licencia";
+        if(m.voto_estado === "MESA DIRECTIVA") classVoto = "v-mesa";
+        if(m.voto_estado === "NO VOTO") classVoto = "v-novoto";
+
+        const displayNombre = m.oralizado ? `${m.nombre}*` : m.nombre;
+
+        row.innerHTML = `
+            <span class="cong-name" style="font-size:11px;">${displayNombre} <span style="opacity:0.6; font-weight:normal;">(${m.bancada})</span></span>
+            <span class="voto-tag ${classVoto}">${m.voto_estado}</span>
+        `;
+        body.appendChild(row);
+    });
+
+    modal.style.display = "flex";
 }
 
 // Cerrar modal al hacer clic fuera del contenido

@@ -49,19 +49,19 @@
     </header>
 
     <section class="dashboard-summary">
-        <div class="led-counter count-favor">
+        <div class="led-counter count-favor" onclick="verDetalleVoto('A FAVOR')" style="cursor: pointer;">
             <span class="label">A FAVOR</span>
             <span class="number" id="count-favor">0</span>
         </div>
-        <div class="led-counter count-contra">
+        <div class="led-counter count-contra" onclick="verDetalleVoto('EN CONTRA')" style="cursor: pointer;">
             <span class="label">EN CONTRA</span>
             <span class="number" id="count-contra">0</span>
         </div>
-        <div class="led-counter count-abstencion">
+        <div class="led-counter count-abstencion" onclick="verDetalleVoto('ABSTENCION')" style="cursor: pointer;">
             <span class="label">ABSTENCIÓN</span>
             <span class="number" id="count-abstencion">0</span>
         </div>
-        <div class="led-counter count-novotaron">
+        <div class="led-counter count-novotaron" onclick="verDetalleVoto('NO VOTARON')" style="cursor: pointer;">
             <span class="label">NO VOTARON</span>
             <span class="number" id="count-novotaron">0</span>
         </div>
@@ -94,6 +94,9 @@
         </div>
         <div id="grid-congresistas" class="grid-congresistas">
             <!-- Generados desde JS -->
+        </div>
+        <div class="asterisk-legend" style="text-align: center; font-size: 10px; color: #64748b; margin-top: 20px; letter-spacing: 1px; padding: 10px;">
+            (*) INDICA EL VOTO QUE FUE REGISTRADO DE MANERA ORAL 
         </div>
     </main>
 
