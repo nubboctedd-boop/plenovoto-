@@ -168,7 +168,7 @@ def generar_graficos_temporales(datos):
     fig2.gca().add_artist(centre_circle)
     
     buf2 = io.BytesIO()
-    fig2.savefig(buf2, format='png', dpi=300, bbox_inches='tight', pad_inches=0.3)
+    fig2.savefig(buf2, format='png', dpi=150, bbox_inches='tight', pad_inches=0.3)
     plt.close(fig2)
 
     # 3. Gráfico Regional (BARRAS HORIZONTALES - % DE APOYO POR REGIÓN)
@@ -207,7 +207,7 @@ def generar_graficos_temporales(datos):
         ax3.text(width + 2, bar.get_y() + bar.get_height()/2, f'{width:.1f}%', va='center', fontsize=8, fontweight='bold')
 
     buf3 = io.BytesIO()
-    fig3.savefig(buf3, format='png', dpi=300, bbox_inches='tight', pad_inches=0.3)
+    fig3.savefig(buf3, format='png', dpi=150, bbox_inches='tight', pad_inches=0.3)
     plt.close(fig3)
     
     # 4. Gráfico Índice de Rice (BARRAS)
@@ -244,7 +244,7 @@ def generar_graficos_temporales(datos):
         ax4.spines['right'].set_visible(False)
         ax4.spines['top'].set_visible(False)
         buf4 = io.BytesIO()
-        fig4.savefig(buf4, format='png', dpi=300, bbox_inches='tight', pad_inches=0.3)
+        fig4.savefig(buf4, format='png', dpi=150, bbox_inches='tight', pad_inches=0.3)
         plt.close(fig4)
 
     # 5. Termómetro Político (Gauge / Barra Horizontal de apoyo total)
@@ -260,7 +260,7 @@ def generar_graficos_temporales(datos):
     ax5.set_yticks([])
     ax5.text(0.5, -0.5, "Fuente: Sistema PlenoVoto Institucional. Elaboración propia.", transform=ax5.transAxes, ha='center', fontsize=7, style='italic')
     buf5 = io.BytesIO()
-    fig5.savefig(buf5, format='png', dpi=300, bbox_inches='tight', pad_inches=0.3)
+    fig5.savefig(buf5, format='png', dpi=150, bbox_inches='tight', pad_inches=0.3)
     plt.close(fig5)
 
     # 6. Perfil de Bancada (Stacked horizontal bar 100%)
@@ -295,7 +295,7 @@ def generar_graficos_temporales(datos):
     ax6.text(0.5, -0.3, "Fuente: Sistema PlenoVoto Institucional. Elaboración propia.", transform=ax6.transAxes, ha='center', fontsize=7, style='italic')
     for s in ax6.spines.values(): s.set_visible(False)
     buf6 = io.BytesIO()
-    fig6.savefig(buf6, format='png', dpi=300, bbox_inches='tight', pad_inches=0.3)
+    fig6.savefig(buf6, format='png', dpi=150, bbox_inches='tight', pad_inches=0.3)
     plt.close(fig6)
 
     # 7. Matriz de Calor de Votos
@@ -329,7 +329,7 @@ def generar_graficos_temporales(datos):
     ax7.text(0.5, -0.2, "Fuente: Sistema PlenoVoto Institucional. Elaboración propia.", transform=ax7.transAxes, ha='center', fontsize=7, style='italic')
     
     buf7 = io.BytesIO()
-    fig7.savefig(buf7, format='png', dpi=300, bbox_inches='tight', pad_inches=0.3)
+    fig7.savefig(buf7, format='png', dpi=150, bbox_inches='tight', pad_inches=0.3)
     plt.close(fig7)
 
     # 8. ELIMINADO: Boxplot de Dispersión
