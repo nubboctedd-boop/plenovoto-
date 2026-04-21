@@ -643,13 +643,8 @@ async def importar_votos(file: UploadFile = File(...), user: str = Depends(get_c
 
 @app.post("/api/exportar")
 def exportar_resultados(payload: ExportPayload, user: str = Depends(get_current_user)):
+    import tempfile
     try:
-        # Limpieza de archivo antiguo para evitar confusiones
-        old_pdf = os.path.join(SCRIPT_DIR, "Reporte_Final_Sesion.pdf")
-        if os.path.exists(old_pdf):
-            try: os.remove(old_pdf)
-            except: pass
-
         datos = [d for d in payload.data if not d.is_empty]
         stats = {
             "meta": payload.meta,
@@ -659,10 +654,21 @@ def exportar_resultados(payload: ExportPayload, user: str = Depends(get_current_
         # Nombre con Hora de Descarga para el usuario
         hora_str = datetime.now().strftime("%H-%M-%S")
         filename = f"Reporte_PlenoVoto_{hora_str}.pdf"
-        pdf_path = os.path.join(SCRIPT_DIR, filename)
+        
+        # Usar directorio temporal del SO (siempre escribible, incluso en la nube)
+        pdf_path = os.path.join(tempfile.gettempdir(), filename)
         
         print(f"DEBUG: Generando PDF en {pdf_path}")
+        
+        # Liberar memoria de matplotlib antes de generar
+        plt.close('all')
+        
         generar_pdf_reporte(datos, stats, pdf_path)
+        
+        # Liberar memoria después de generar
+        plt.close('all')
+        import gc
+        gc.collect()
         
         return FileResponse(
             path=pdf_path, 
@@ -670,8 +676,10 @@ def exportar_resultados(payload: ExportPayload, user: str = Depends(get_current_
             media_type='application/pdf'
         )
     except Exception as e:
+        plt.close('all')
         print(f"ERROR EXPORTAR: {str(e)}")
         raise HTTPException(status_code=500, detail=str(e))
+
 
 if __name__ == "__main__":
     import uvicorn
